@@ -52,10 +52,18 @@
       <option value="south">Lower South Island</option>
     </select>
     <select id="month" onchange="updateDashboard()">
-      <option>January</option><option>February</option><option>March</option>
-      <option>April</option><option>May</option><option>June</option>
-      <option>July</option><option>August</option><option>September</option>
-      <option>October</option><option>November</option><option>December</option>
+       <option>January</option>
+  <option>February</option>
+  <option>March</option>
+  <option>April</option>
+  <option>May</option>
+  <option>June</option>
+  <option>July</option>
+  <option>August</option>
+  <option>September</option>
+  <option>October</option>
+  <option>November</option>
+  <option>December</option>
     </select>
     
   </div>
@@ -181,5 +189,7 @@ function updateDashboard() {
 // FORCE INITIAL LOAD
 window.onload = updateDashboard;
 </script>
+    // monthlyData + updateDashboard function here
+  window.onload = updateDashboard;
 </body>
 </html>
