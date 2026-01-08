@@ -27,6 +27,12 @@ footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color:
 </header>
 
 <section>
+<label for="gardener">What type of gardener are you?</label><br>
+<select id="gardener" onchange="updateDashboard()">
+  <option value="backyard">Backyard / Small garden</option>
+  <option value="lifestyle">Lifestyle block / Large property</option>
+</select>
+<br><br>
 <label for="region">Region:</label><br>
 <select id="region" onchange="updateDashboard()">
 <option value="north">Upper North Island</option>
@@ -116,4 +122,34 @@ footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color:
 const data = {
 north:{January:{plant:'Tomatoes, beans, basil',pests:'Aphids, whitefly',disease:'Blight risk'},February:{plant:'Lettuce, silverbeet',pests:'Aphids',disease:'Powdery mildew'},March:{plant:'Brassicas, spinach',pests:'Caterpillars',disease:'Leaf spots'},April:{plant:'Garlic, onions',pests:'Low',disease:'Rust'},May:{plant:'Broad beans',pests:'Low',disease:'Wet soil rot'},June:{plant:'Prep only',pests:'Slugs',disease:'Root rot'},July:{plant:'Broad beans, peas',pests:'Slugs',disease:'Cold soils'},August:{plant:'Early potatoes',pests:'Aphids',disease:'Damping off'},September:{plant:'Carrots, beetroot',pests:'Rust fly',disease:'Seedling loss'},October:{plant:'Tomatoes (frost-free)',pests:'Aphids',disease:'Blight'},November:{plant:'Sweetcorn',pests:'Caterpillars',disease:'Mildew'},December:{plant:'Succession sowing',pests:'Thrips',disease:'Heat stress'}},
 central:{January:{plant:'Beans, courgettes',pests:'Aphids',disease:'Mildew'},February:{plant:'Leafy greens',pests:'Caterpillars',disease:'Leaf spots'},March:{plant:'Brassicas',pests:'White butterfly',disease:'Clubroot'},April:{plant:'Garlic',pests:'Low',disease:'Rust'},May:{plant:'Broad beans',pests:'Low',disease:'Wet soils'},June:{plant:'Prep beds',pests:'Slugs',disease:'Drainage'},July:{plant:'Sheltered peas',pests:'Slugs',disease:'Cold rot'},August:{plant:'Peas',pests:'Aphids',disease:'Damping off'},September:{plant:'Carrots',pests:'Rust fly',disease:'Seedling loss'},October:{plant:'Protected tomatoes',pests:'Aphids',disease:'Blight'},November:{plant:'Beans',pests:'Caterpillars',disease:'Mildew'},December:{plant:'Summer crops',pests:'Thrips',disease:'Heat stress'}},
-south:{January:{plant:'Fast summer crops',pests:'Caterpillars',disease:'Fungal risk'},February:{plant:'Leafy greens',pests:'Low',disease:'Leaf spots'},March:{plant:'Brassicas',pests:'White butterfly',disease:'Clubroot'},April:{plant:'Garlic',pests:'Low',disease:'Rust'},May:{plant:'Broad beans',pests:'Low',disease:'Wet soil rot'},June:{plant:'No planting',pests:'Slugs',disease:'Drainage'},July:{plant:'Prep only',pests:'Slugs',disease:'Cold soils'},August:{plant:'Peas under cover',pests:'Low',disease:'Damping off'},September:{plant:'Late carrots',pests:'Rust fly',disease:'Seedling loss'},October:{plant:'Protected tomatoes',pests:'Aphids',disease:'Blight'},November:{plant:'Limited summer crops',pests:'
+south:{January:{plant:'Fast summer crops',pests:'Caterpillars',disease:'Fungal risk'},February:{plant:'Leafy greens',pests:'Low',disease:'Leaf spots'},March:{plant:'Brassicas',pests:'White butterfly',disease:'Clubroot'},April:{plant:'Garlic',pests:'Low',disease:'Rust'},May:{plant:'Broad beans',pests:'Low',disease:'Wet soil rot'},June:{plant:'No planting',pests:'Slugs',disease:'Drainage'},July:{plant:'Prep only',pests:'Slugs',disease:'Cold soils'},August:{plant:'Peas under cover',pests:'Low',disease:'Damping off'},September:{plant:'Late carrots',pests:'Rust fly',disease:'Seedling loss'},October:{plant:'Protected tomatoes',pests:'Aphids',disease:'Blight'},November:{plant:'Limited summer crops',pests:'Caterpillars',disease:'Mildew'},December:{plant:'Quick crops',pests:'Thrips',disease:'Heat stress'}}
+};
+
+function updateDashboard(){
+  const region = document.getElementById('region').value;
+  const month = document.getElementById('month').value;
+  const gardener = document.getElementById('gardener').value;
+  let d = data[region][month];
+  if(gardener === 'lifestyle'){
+    d.plant += ' (plan for larger scale)';
+    d.pests += ' (consider IPM thresholds for lifestyle block)';
+    d.disease += ' (monitor carefully)';
+  }
+  document.getElementById('monthly').innerHTML = `
+    <tr><td><strong>What to plant</strong></td><td>${d.plant}</td></tr>
+    <tr><td><strong>Key pests</strong></td><td>${d.pests}</td></tr>
+    <tr><td><strong>Disease risk</strong></td><td>${d.disease}</td></tr>
+  `;
+}
+
+function showCrop(id){
+  const sections = document.getElementsByClassName('crop-section');
+  for(let s of sections){s.classList.remove('active');}
+  document.getElementById(id).classList.add('active');
+}
+
+window.onload = updateDashboard;
+</script>
+
+</body>
+</html>
