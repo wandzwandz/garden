@@ -13,10 +13,7 @@ table { width: 100%; border-collapse: collapse; margin-top: 20px; }
 td, th { border: 1px solid #ccc; padding: 12px; vertical-align: top; }
 section { margin-top: 30px; }
 footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color: #555; }
-.crop-tabs button { font-size: 18px; padding: 8px; margin: 5px; }
-.crop-section { display: none; margin-top: 20px; }
-.active { display: block; }
-.pest-card { border:1px solid #ccc; padding:10px; margin:10px 0; }
+a { display: inline-block; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -53,51 +50,13 @@ footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color:
 </table>
 </section>
 
-<section class="crop-tabs">
+<section>
 <h2>Crop Guides</h2>
-<button onclick="showCrop('tomatoes')">Tomatoes</button>
-<button onclick="showCrop('brassicas')">Brassicas</button>
-<button onclick="showCrop('carrots')">Carrots</button>
-<div id="tomatoes" class="crop-section">
-<h3>Tomatoes</h3>
-<p><strong>Planting:</strong> January - March (North), February - April (Central), March - May (South)</p>
-<p><strong>Pests:</strong> Aphids, Whitefly, Caterpillars</p>
-<p><strong>Diseases:</strong> Blight, Mildew</p>
-<p><strong>Lifestyle block IPM:</strong> Treat only if >10% leaf loss</p>
-</div>
-<div id="brassicas" class="crop-section">
-<h3>Brassicas (Cabbage, Broccoli, Cauliflower)</h3>
-<p><strong>Planting:</strong> February - May (North/Central), March - June (South)</p>
-<p><strong>Pests:</strong> White butterfly caterpillars, aphids</p>
-<p><strong>Diseases:</strong> Clubroot, Leaf spots</p>
-<p><strong>Lifestyle block IPM:</strong> Treat if >10% leaves damaged</p>
-</div>
-<div id="carrots" class="crop-section">
-<h3>Carrots</h3>
-<p><strong>Planting:</strong> March - August (all regions)</p>
-<p><strong>Pests:</strong> Carrot rust fly, aphids</p>
-<p><strong>Diseases:</strong> Seedling damping off</p>
-<p><strong>Lifestyle block IPM:</strong> Observe damage before action</p>
-</div>
-</section>
-
-<section id="pests">
-<h2>Pest & Disease ID Cards</h2>
-<div class="pest-card">
-<h3>Aphids</h3>
-<p>Small green insects, cluster on new growth</p>
-<p>Action: >10% infestation, spray with soap</p>
-</div>
-<div class="pest-card">
-<h3>Whitefly</h3>
-<p>Small white insects, under leaves</p>
-<p>Action: Use yellow sticky traps if heavy</p>
-</div>
-<div class="pest-card">
-<h3>Caterpillars</h3>
-<p>Chew leaves rapidly</p>
-<p>Action: Remove by hand if few, otherwise safe insecticide</p>
-</div>
+<ul>
+<li><a href="crops/tomatoes.html">Tomatoes</a></li>
+<li><a href="crops/brassicas.html">Brassicas</a></li>
+<li><a href="crops/carrots.html">Carrots</a></li>
+</ul>
 </section>
 
 <section id="lifestyle">
@@ -112,10 +71,7 @@ footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color:
 </section>
 
 <footer>
-<h2>Print-friendly monthly guide</h2>
-<p>This page is suitable for printing for offline use.</p>
-<button onclick="window.print()">Print this page</button>
-<p style="margin-top:20px;">Sources: NZ Plant & Food Research, MPI, Regional Councils. Educational guidance only. Last updated 2026.</p>
+<p>Sources: NZ Plant & Food Research, MPI, Regional Councils. Educational guidance only. Last updated 2026.</p>
 </footer>
 
 <script>
@@ -140,12 +96,6 @@ function updateDashboard(){
     <tr><td><strong>Key pests</strong></td><td>${d.pests}</td></tr>
     <tr><td><strong>Disease risk</strong></td><td>${d.disease}</td></tr>
   `;
-}
-
-function showCrop(id){
-  const sections = document.getElementsByClassName('crop-section');
-  for(let s of sections){s.classList.remove('active');}
-  document.getElementById(id).classList.add('active');
 }
 
 window.onload = updateDashboard;
