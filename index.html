@@ -57,7 +57,7 @@
       <option>July</option><option>August</option><option>September</option>
       <option>October</option><option>November</option><option>December</option>
     </select>
-    <button onclick="window.print()">Print this page</button>
+    
   </div>
 
   <div class="card">
@@ -99,115 +99,12 @@
     <div class="tip">Hygiene prevents most pest and disease issues.</div>
   </div>
 </section>
-</main>
 
-<footer>
-  <p>Based on New Zealand growing conditions and Integrated Pest Management (IPM) principles.</p>
-  <p>Designed for older users, lifestyle block owners, and regional variation.</p>
-</footer>
-
-<script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NZ Gardening Companion</title>
-  <style>
-    body { font-family: Arial, Helvetica, sans-serif; background:#f4f7f4; color:#1f2d1f; margin:0; line-height:1.6; }
-    header { background:#2f6b3c; color:white; padding:2rem 1rem; text-align:center; }
-    header h1 { font-size:2.4rem; margin:0; }
-    nav { background:#e7efe9; padding:1rem; text-align:center; }
-    nav button { font-size:1.1rem; padding:0.6rem 1rem; margin:0.3rem; }
-    main { max-width:1200px; margin:auto; padding:1.5rem; }
-    .card { background:white; border-radius:14px; padding:1.5rem; margin-bottom:1.5rem; box-shadow:0 3px 8px rgba(0,0,0,0.08); }
-    h2 { font-size:1.9rem; margin-top:0; }
-    h3 { font-size:1.4rem; }
-    select, button { font-size:1.2rem; padding:0.6rem; width:100%; max-width:420px; margin-bottom:1rem; }
-    table { width:100%; border-collapse:collapse; }
-    td, th { padding:0.8rem; border-bottom:1px solid #ddd; font-size:1.1rem; }
-    th { background:#e7efe9; }
-    .tip { background:#eef6f0; border-left:6px solid #2f6b3c; padding:1rem; margin-top:0.8rem; }
-    footer { text-align:center; padding:1.5rem; background:#e7efe9; font-size:1rem; }
-    @media print { header, nav, select, button { display:none; } body { background:white; } }
-  </style>
-</head>
-<body>
-<header>
-  <h1>NZ Gardening Companion</h1>
-  <p>Vegetable & ornamental gardening advice for all New Zealand regions</p>
-</header>
-
-<nav>
-  <button onclick="showPage('dashboard')">Monthly Guide</button>
-  <button onclick="showPage('crops')">Crop Guides</button>
-  <button onclick="showPage('pests')">Pests & Diseases</button>
-  <button onclick="showPage('lifestyle')">Lifestyle Blocks</button>
-</nav>
-
-<main>
-<!-- DASHBOARD -->
-<section id="dashboard" class="page">
-  <div class="card">
-    <h2>Your Garden</h2>
-    <select id="userType" onchange="updateDashboard()">
-      <option value="home">Home Gardener</option>
-      <option value="keen">Keen / Retired Gardener</option>
-      <option value="lifestyle">Lifestyle Block Owner</option>
-    </select>
-    <select id="region" onchange="updateDashboard()">
-      <option value="north">Upper North Island</option>
-      <option value="central">Central NZ</option>
-      <option value="south">Lower South Island</option>
-    </select>
-    <select id="month" onchange="updateDashboard()">
-      <option>January</option><option>February</option><option>March</option>
-      <option>April</option><option>May</option><option>June</option>
-      <option>July</option><option>August</option><option>September</option>
-      <option>October</option><option>November</option><option>December</option>
-    </select>
+  <section id="print-section" style="margin-top:3em; border-top:1px solid #ccc; padding-top:1em;">
+    <h2>Print-friendly monthly guide</h2>
+    <p>This page can be printed for offline use. Use your browser’s Print function.</p>
     <button onclick="window.print()">Print this page</button>
-  </div>
-
-  <div class="card">
-    <h2>This Month</h2>
-    <table><tbody id="monthly"></tbody></table>
-  </div>
-</section>
-
-<!-- CROPS -->
-<section id="crops" class="page" style="display:none">
-  <div class="card">
-    <h2>Crop Guides (End-to-End)</h2>
-    <div class="tip"><strong>Tomatoes:</strong> Plant after frost | Watch: aphids, caterpillars | Diseases: blight. Lifestyle block threshold: treat only if >15% plants affected.</div>
-    <div class="tip"><strong>Brassicas:</strong> Sow spring/autumn | Watch: white butterfly | Threshold: 1 caterpillar per 10 plants.</div>
-    <div class="tip"><strong>Carrots:</strong> Direct sow | Watch: carrot rust fly | Use rotation & covers before spraying.</div>
-    <div class="tip"><strong>Roses:</strong> Winter pruning | Watch: aphids | Treat only if buds distorted.</div>
-  </div>
-</section>
-
-<!-- PESTS -->
-<section id="pests" class="page" style="display:none">
-  <div class="card">
-    <h2>Pest & Disease ID Cards</h2>
-    <div class="tip"><strong>Aphids</strong><br>Action: treat only if new growth distorted.</div>
-    <div class="tip"><strong>Caterpillars</strong><br>Action: lifestyle blocks – act at >10% leaf loss.</div>
-    <div class="tip"><strong>Powdery mildew</strong><br>Action: improve airflow before spraying.</div>
-    <div class="tip"><strong>Blight</strong><br>Action: remove infected plants immediately.</div>
-  </div>
-</section>
-
-<!-- LIFESTYLE -->
-<section id="lifestyle" class="page" style="display:none">
-  <div class="card">
-    <h2>Lifestyle Block Rules of Thumb</h2>
-    <div class="tip">Walk the block weekly and record changes.</div>
-    <div class="tip">Never spray without confirming thresholds.</div>
-    <div class="tip">One bad patch usually indicates drainage or fertility issues.</div>
-    <div class="tip">Rotate crops every season to reduce disease.</div>
-    <div class="tip">Hygiene prevents most pest and disease issues.</div>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer>
@@ -283,10 +180,6 @@ function updateDashboard() {
 
 // FORCE INITIAL LOAD
 window.onload = updateDashboard;
-</script>
-</body>
-</html>
-
 </script>
 </body>
 </html>
