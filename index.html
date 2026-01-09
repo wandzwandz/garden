@@ -13,7 +13,7 @@ table { width: 100%; border-collapse: collapse; margin-top: 20px; }
 td, th { border: 1px solid #ccc; padding: 12px; vertical-align: top; }
 section { margin-top: 30px; display: none; }
 .active { display: block; }
-nav select, nav button { margin-right: 5px; }
+nav button { margin-right: 5px; }
 .pest-card { border:1px solid #ccc; padding:10px; margin:10px 0; }
 footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color: #555; }
 a { text-decoration: none; color: #2f6b2f; }
@@ -23,17 +23,14 @@ a { text-decoration: none; color: #2f6b2f; }
 
 <header>
 <h1>NZ Gardening Companion</h1>
-<p>Comprehensive seasonal gardening guide for New Zealand</p>
+<p>Simple, seasonal gardening advice for New Zealand</p>
 </header>
 
 <nav>
 <button onclick="showSection('home')">Home</button>
-<select id="cropSelect" onchange="showCrop()">
-  <option value="">Select Crop Guide</option>
-  <option value="tomatoes">Tomatoes</option>
-  <option value="brassicas">Brassicas</option>
-  <option value="carrots">Carrots</option>
-</select>
+<button onclick="showSection('tomatoes')">Tomatoes</button>
+<button onclick="showSection('brassicas')">Brassicas</button>
+<button onclick="showSection('carrots')">Carrots</button>
 <button onclick="showSection('pests')">Pests & Diseases</button>
 <button onclick="showSection('lifestyle')">Lifestyle Blocks</button>
 </nav>
@@ -69,27 +66,80 @@ a { text-decoration: none; color: #2f6b2f; }
 
 <section id="tomatoes">
 <h2>Tomatoes Guide</h2>
-<!-- Tomato guide content remains unchanged -->
+<table>
+<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
+<tr><td>Northland / Auckland</td><td>Jan - Mar</td><td>Full sun, warm soil</td><td>45cm</td></tr>
+<tr><td>Waikato / Bay of Plenty</td><td>Feb - Apr</td><td>Full sun, warm soil</td><td>45cm</td></tr>
+<tr><td>East Coast / Canterbury</td><td>Mar - May</td><td>Protected sites, frost-free</td><td>45cm</td></tr>
+<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Greenhouse or sheltered sites</td><td>45cm</td></tr>
+</table>
+<h3>Pests & Diseases</h3>
+<table>
+<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
+<tr><td>Aphids</td><td>Clusters on new growth</td><td>>10% leaves</td></tr>
+<tr><td>Whitefly</td><td>Small white insects under leaves</td><td>Sticky traps if heavy</td></tr>
+<tr><td>Blight</td><td>Dark lesions on leaves/stems</td><td>Remove affected parts</td></tr>
+<tr><td>Mildew</td><td>White powdery coating</td><td>Only if widespread</td></tr>
+</table>
+<p>Soil: Well-drained, fertile pH 6.0-6.8<br>Light: Full sun<br>Water: Regular, avoid wetting leaves</p>
+<button onclick="window.print()">Print this page</button>
 </section>
 
 <section id="brassicas">
 <h2>Brassicas Guide</h2>
-<!-- Brassicas guide content remains unchanged -->
+<table>
+<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
+<tr><td>Northland / Auckland</td><td>Feb - May</td><td>Full sun, fertile soil</td><td>30-50cm</td></tr>
+<tr><td>East Coast / Canterbury</td><td>Mar - Jun</td><td>Protected sites, fertile soil</td><td>30-50cm</td></tr>
+<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Sheltered sites, short season</td><td>30-50cm</td></tr>
+</table>
+<h3>Pests & Diseases</h3>
+<table>
+<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
+<tr><td>White butterfly caterpillars</td><td>Leaf holes</td><td>>10% leaf damage</td></tr>
+<tr><td>Aphids</td><td>Clusters on leaves</td><td>>10% leaves</td></tr>
+<tr><td>Clubroot</td><td>Swollen roots, stunted growth</td><td>Remove affected plants</td></tr>
+<tr><td>Leaf spots</td><td>Dark spots on leaves</td><td>Only if severe</td></tr>
+</table>
+<p>Soil: Well-drained, fertile pH 6.0-7.0<br>Light: Full sun<br>Water: Keep soil moist</p>
+<button onclick="window.print()">Print this page</button>
 </section>
 
 <section id="carrots">
 <h2>Carrots Guide</h2>
-<!-- Carrots guide content remains unchanged -->
+<table>
+<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
+<tr><td>Northland / Auckland</td><td>Mar - Aug</td><td>Sow 1-2cm deep</td><td>5-10cm</td></tr>
+<tr><td>East Coast / Canterbury</td><td>Mar - Aug</td><td>Raised beds / protected rows</td><td>5-10cm</td></tr>
+<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Sow in protected or raised beds</td><td>5-10cm</td></tr>
+</table>
+<h3>Pests & Diseases</h3>
+<table>
+<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
+<tr><td>Carrot rust fly</td><td>Holes in roots</td><td>Row covers if >5%</td></tr>
+<tr><td>Aphids</td><td>Clusters on leaves</td><td>>10% leaves</td></tr>
+<tr><td>Damping off</td><td>Seedlings collapse</td><td>Ensure good drainage</td></tr>
+</table>
+<p>Soil: Loose, deep, free of stones<br>Light: Full sun<br>Water: Evenly moist</p>
+<button onclick="window.print()">Print this page</button>
 </section>
 
 <section id="pests">
 <h2>Pest & Disease ID Cards</h2>
-<!-- Pest ID cards content remains unchanged -->
+<div class="pest-card"><h3>Aphids</h3><p>Small green insects, cluster on new growth. Action: >10% infestation, spray with soap</p></div>
+<div class="pest-card"><h3>Whitefly</h3><p>Small white insects, under leaves. Action: Use yellow sticky traps if heavy</p></div>
+<div class="pest-card"><h3>Caterpillars</h3><p>Chew leaves rapidly. Action: Remove by hand if few, otherwise safe insecticide</p></div>
 </section>
 
 <section id="lifestyle">
 <h2>Lifestyle Block Notes & IPM Thresholds</h2>
-<!-- Lifestyle block table content remains unchanged -->
+<table>
+<tr><th>Area</th><th>Pest</th><th>Action Threshold</th></tr>
+<tr><td>Northland / Auckland</td><td>Caterpillars</td><td>15% leaf damage</td></tr>
+<tr><td>East Coast / Canterbury</td><td>Aphids</td><td>10% infestation</td></tr>
+<tr><td>Central Otago / Otago</td><td>Slugs</td><td>5 per m²</td></tr>
+</table>
+<p>Encourage beneficial insects and tolerate minor damage before chemical use.</p>
 </section>
 
 <footer>
@@ -98,19 +148,18 @@ a { text-decoration: none; color: #2f6b2f; }
 </footer>
 
 <script>
-function showSection(id){
-  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-
-function showCrop(){
-  const crop = document.getElementById('cropSelect').value;
-  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-  if(crop) document.getElementById(crop).classList.add('active');
-}
-
-// Full data object with 12 months for all 10 areas (omitted here for brevity; use your existing full data)
-const data = { /* ... your full data ... */ };
+const data = {
+"Northland / Auckland": {January:{plant:'Tomatoes, beans, basil',pests:'Aphids, whitefly',disease:'Blight risk'},February:{plant:'Lettuce, silverbeet',pests:'Aphids',disease:'Powdery mildew'},March:{plant:'Brassicas, spinach',pests:'Caterpillars',disease:'Leaf spots'}},
+"Waikato / Bay of Plenty": {January:{plant:'Tomatoes, beans',pests:'Aphids',disease:'Mildew'}},
+"Wairarapa / Manawatu": {January:{plant:'Lettuce, peas',pests:'Aphids',disease:'Leaf spots'}},
+"Wellington / Hawke’s Bay": {January:{plant:'Beans, tomatoes',pests:'Aphids',disease:'Blight'}},
+"Nelson / Marlborough": {January:{plant:'Leafy greens, brassicas',pests:'Caterpillars',disease:'Powdery mildew'}},
+"East Coast / Canterbury": {January:{plant:'Tomatoes, beans',pests:'Aphids',disease:'Blight'}},
+"Central Otago / Otago": {January:{plant:'Prep beds, hardy crops',pests:'Slugs',disease:'Cold soils'}},
+"Southland / Invercargill": {January:{plant:'Hardy brassicas',pests:'Slugs',disease:'Frost damage'}},
+"West Coast – North": {January:{plant:'Leafy greens',pests:'Slugs',disease:'Wet soil rot'}},
+"West Coast – South": {January:{plant:'Leafy greens',pests:'Slugs',disease:'Wet soil rot'}}
+};
 
 function updateDashboard(){
   const area = document.getElementById('area').value;
@@ -120,6 +169,11 @@ function updateDashboard(){
 <tr><td><strong>What to plant</strong></td><td>${d.plant}</td></tr>
 <tr><td><strong>Key pests</strong></td><td>${d.pests}</td></tr>
 <tr><td><strong>Disease risk</strong></td><td>${d.disease}</td></tr>`;
+}
+
+function showSection(id){
+  document.querySelectorAll('section').forEach(sec=>sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
 window.onload = updateDashboard;
