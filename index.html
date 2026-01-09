@@ -4,20 +4,48 @@
 <meta charset="UTF-8">
 <title>NZ Gardening Companion</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; padding: 20px; }
-header { background: #2f6b2f; color: white; padding: 20px; }
-h1, h2 { margin-top: 0; }
-select, button { font-size: 18px; padding: 6px; margin: 10px 0; }
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-td, th { border: 1px solid #ccc; padding: 12px; vertical-align: top; }
-section { margin-top: 30px; display: none; }
+body {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  background: #2f6b2f;
+  color: white;
+  padding: 20px;
+}
+
+nav button, nav select {
+  font-size: 18px;
+  padding: 6px;
+  margin-right: 6px;
+}
+
+section { display: none; margin-top: 30px; }
 .active { display: block; }
-nav select, nav button { margin-right: 5px; }
-.pest-card { border:1px solid #ccc; padding:10px; margin:10px 0; }
-footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color: #555; }
-a { text-decoration: none; color: #2f6b2f; }
-  .pest-img, .disease-img {
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+td, th {
+  border: 1px solid #ccc;
+  padding: 12px;
+}
+
+.pest-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.pest-img, .disease-img {
   width: 100%;
   max-width: 320px;
   height: auto;
@@ -31,30 +59,41 @@ a { text-decoration: none; color: #2f6b2f; }
   color: #555;
 }
 
+footer {
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  color: #555;
+}
 </style>
 </head>
+
 <body>
 
 <header>
 <h1>NZ Gardening Companion</h1>
-<p>Comprehensive seasonal gardening guide for New Zealand</p>
+<p>Seasonal gardening guidance for New Zealand gardeners</p>
 </header>
 
 <nav>
 <button onclick="showSection('home')">Home</button>
+
 <select id="cropSelect" onchange="showCrop()">
-  <option value="">Select Crop Guide</option>
-  <option value="tomatoes">Tomatoes</option>
-  <option value="brassicas">Brassicas</option>
-  <option value="carrots">Carrots</option>
+<option value="">Select Crop Guide</option>
+<option value="tomatoes">Tomatoes</option>
+<option value="brassicas">Brassicas</option>
+<option value="carrots">Carrots</option>
 </select>
+
 <button onclick="showSection('pests')">Pests & Diseases</button>
 <button onclick="showSection('lifestyle')">Lifestyle Blocks</button>
 </nav>
 
+<!-- HOME -->
 <section id="home" class="active">
 <h2>Monthly Planting Dashboard</h2>
-<label for="area">Select your area:</label><br>
+
+<label>Area:</label><br>
 <select id="area" onchange="updateDashboard()">
 <option>Northland / Auckland</option>
 <option>Waikato / Bay of Plenty</option>
@@ -67,8 +106,9 @@ a { text-decoration: none; color: #2f6b2f; }
 <option>West Coast – North</option>
 <option>West Coast – South</option>
 </select>
+
 <br><br>
-<label for="month">Month:</label><br>
+<label>Month:</label><br>
 <select id="month" onchange="updateDashboard()">
 <option>January</option><option>February</option><option>March</option>
 <option>April</option><option>May</option><option>June</option>
@@ -79,152 +119,125 @@ a { text-decoration: none; color: #2f6b2f; }
 <table>
 <tbody id="monthly"></tbody>
 </table>
+
+<img src="images/aphids.jpg" alt="Common garden pest aphids" class="pest-img">
+<p class="img-caption">Aphids are common in warmer months</p>
 </section>
 
+<!-- TOMATOES -->
 <section id="tomatoes">
-<h2>Tomatoes Guide</h2>
-<table>
-<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
-<tr><td>Northland / Auckland</td><td>Jan - Mar</td><td>Full sun, warm soil</td><td>45cm</td></tr>
-<tr><td>Waikato / Bay of Plenty</td><td>Feb - Apr</td><td>Full sun, warm soil</td><td>45cm</td></tr>
-<tr><td>East Coast / Canterbury</td><td>Mar - May</td><td>Protected sites, frost-free</td><td>45cm</td></tr>
-<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Greenhouse or sheltered sites</td><td>45cm</td></tr>
-<tr><td>Southland / Invercargill</td><td>Oct - Dec</td><td>Greenhouse or sheltered sites</td><td>45cm</td></tr>
-<tr><td>West Coast – North</td><td>Jan - Mar</td><td>Full sun, sheltered from wind</td><td>45cm</td></tr>
-<tr><td>West Coast – South</td><td>Feb - Mar</td><td>Protected beds, full sun</td><td>45cm</td></tr>
-</table>
-<h3>Pests & Diseases</h3>
-<table>
-<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
-<tr><td>Aphids</td><td>Clusters on new growth</td><td>>10% leaves</td></tr>
-<tr><td>Whitefly</td><td>Small white insects under leaves</td><td>Sticky traps if heavy</td></tr> <img src="images/whitefly.jpg"
-     alt="Whitefly under tomato leaves"
-     class="pest-img">
-<tr><td>Blight</td><td>Dark lesions on leaves/stems</td><td>Remove affected parts</td></tr>
-<tr><td>Mildew</td><td>White powdery coating</td><td>Only if widespread</td></tr>
-</table>
-<p>Soil: Well-drained, fertile pH 6.0-6.8<br>Light: Full sun<br>Water: Regular, avoid wetting leaves</p>
-<button onclick="window.print()">Print this page</button>
+<h2>Tomatoes</h2>
+
+<img src="images/whitefly.jpg" alt="Whitefly on tomato leaf" class="pest-img">
+<p><strong>Whitefly:</strong> Tiny white insects under leaves. Action if heavy.</p>
+
+<img src="images/aphids.jpg" alt="Aphids on tomato plant" class="pest-img">
+<p><strong>Aphids:</strong> Curling leaves, sticky residue.</p>
+
+<img src="images/tomato-blight.jpg" alt="Tomato blight leaf damage" class="disease-img">
+<p><strong>Blight:</strong> Dark lesions during wet, warm weather.</p>
+
+<button onclick="window.print()">Print Tomatoes Guide</button>
 </section>
 
+<!-- BRASSICAS -->
 <section id="brassicas">
-<h2>Brassicas Guide</h2>
-<table>
-<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
-<tr><td>Northland / Auckland</td><td>Feb - May</td><td>Full sun, fertile soil</td><td>30-50cm</td></tr>
-<tr><td>East Coast / Canterbury</td><td>Mar - Jun</td><td>Protected sites, fertile soil</td><td>30-50cm</td></tr>
-<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Sheltered sites, short season</td><td>30-50cm</td></tr>
-<tr><td>Southland / Invercargill</td><td>Oct - Dec</td><td>Sheltered sites, hardy varieties</td><td>30-50cm</td></tr>
-<tr><td>West Coast – North</td><td>Feb - May</td><td>Full sun, fertile soil</td><td>30-50cm</td></tr>
-<tr><td>West Coast – South</td><td>Feb - Apr</td><td>Partial sun, high rainfall tolerant</td><td>30-50cm</td></tr>
-</table>
-<h3>Pests & Diseases</h3>
-<table>
-<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
-<tr><td>White butterfly caterpillars</td><td>Leaf holes</td><td>>10% leaf damage</td></tr>
-<tr><td>Aphids</td><td>Clusters on leaves</td><td>>10% leaves</td></tr>
-<tr><td>Clubroot</td><td>Swollen roots, stunted growth</td><td>Remove affected plants</td></tr>
-<tr><td>Leaf spots</td><td>Dark spots on leaves</td><td>Only if severe</td></tr>
-</table>
-<p>Soil: Well-drained, fertile pH 6.0-7.0<br>Light: Full sun<br>Water: Keep soil moist</p>
-<button onclick="window.print()">Print this page</button>
+<h2>Brassicas</h2>
+
+<img src="images/cabbage-caterpillar.jpg" alt="Cabbage white caterpillar" class="pest-img">
+<p><strong>Caterpillars:</strong> Large holes in leaves. Hand remove if low numbers.</p>
+
+<img src="images/aphids.jpg" alt="Aphids on brassica leaves" class="pest-img">
+<p><strong>Aphids:</strong> Colonies on leaf undersides.</p>
+
+<img src="images/clubroot.jpg" alt="Clubroot disease symptoms" class="disease-img">
+<p><strong>Clubroot:</strong> Swollen roots, stunted growth.</p>
+
+<button onclick="window.print()">Print Brassicas Guide</button>
 </section>
 
+<!-- CARROTS -->
 <section id="carrots">
-<h2>Carrots Guide</h2>
-<table>
-<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
-<tr><td>Northland / Auckland</td><td>Mar - Aug</td><td>Sow 1-2cm deep</td><td>5-10cm</td></tr>
-<tr><td>East Coast / Canterbury</td><td>Mar - Aug</td><td>Raised beds / protected rows</td><td>5-10cm</td></tr>
-<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Sow in protected or raised beds</td><td>5-10cm</td></tr>
-<tr><td>Southland / Invercargill</td><td>Oct - Dec</td><td>Protected beds, frost-prone areas</td><td>5-10cm</td></tr>
-<tr><td>West Coast – North</td><td>Mar - Jul</td><td>Sow in full sun, sheltered from rain</td><td>5-10cm</td></tr>
-<tr><td>West Coast – South</td><td>Feb - May</td><td>Sow in raised beds, partial sun</td><td>5-10cm</td></tr>
-</table>
-<h3>Pests & Diseases</h3>
-<table>
-<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
-<tr><td>Carrot rust fly</td><td>Holes in roots</td><td>Row covers if >5%</td></tr>
-<tr><td>Aphids</td><td>Clusters on leaves</td><td>>10% leaves</td></tr>
-<tr><td>Damping off</td><td>Seedlings collapse</td><td>Ensure good drainage</td></tr>
-</table>
-<p>Soil: Loose, deep, free of stones<br>Light: Full sun<br>Water: Evenly moist</p>
-<button onclick="window.print()">Print this page</button>
+<h2>Carrots</h2>
+
+<img src="images/carrot-rust-fly.jpg" alt="Carrot rust fly damage" class="pest-img">
+<p><strong>Carrot rust fly:</strong> Tunnels in roots. Use covers.</p>
+
+<img src="images/aphids.jpg" alt="Aphids on carrot foliage" class="pest-img">
+<p><strong>Aphids:</strong> Monitor young foliage.</p>
+
+<img src="images/damping-off.jpg" alt="Seedling damping off disease" class="disease-img">
+<p><strong>Damping off:</strong> Seedlings collapse in wet soils.</p>
+
+<button onclick="window.print()">Print Carrots Guide</button>
 </section>
 
+<!-- PEST ID -->
 <section id="pests">
 <h2>Pest & Disease ID Cards</h2>
-<div class="pest-card"><h3>Aphids</h3><p>Small green insects, cluster on new growth. Action: >10% infestation, spray with soap</p></div>
-<div class="pest-card"><h3>Whitefly</h3><p>Small white insects, under leaves. Action: Use yellow sticky traps if heavy</p></div>
-<div class="pest-card"><h3>Caterpillars</h3><p>Chew leaves rapidly. Action: Remove by hand if few, otherwise safe insecticide</p></div>
-<div class="pest-card"><h3>Carrot rust fly</h3><p>Holes in carrot roots. Action: Use row covers or delay sowing.</p></div>
-<div class="pest-card"><h3>Blight</h3><p>Dark lesions on leaves/stems of tomatoes. Remove affected parts and rotate crops.</p></div>
+
+<div class="pest-card">
+<h3>Aphids</h3>
+<img src="images/aphids.jpg" alt="Aphids on leaf" class="pest-img">
+<p>Threshold: >10% of plants affected</p>
+</div>
+
+<div class="pest-card">
+<h3>Whitefly</h3>
+<img src="images/whitefly.jpg" alt="Whitefly on leaf underside" class="pest-img">
+<p>Threshold: Heavy populations</p>
+</div>
+
+<div class="pest-card">
+<h3>Caterpillars</h3>
+<img src="images/cabbage-caterpillar.jpg" alt="Caterpillar feeding on leaf" class="pest-img">
+<p>Threshold: >15% leaf damage</p>
+</div>
+
+<div class="pest-card">
+<h3>Tomato Blight</h3>
+<img src="images/tomato-blight.jpg" alt="Tomato blight symptoms" class="disease-img">
+<p>Risk increases in wet weather</p>
+</div>
 </section>
 
+<!-- LIFESTYLE -->
 <section id="lifestyle">
-<h2>Lifestyle Block Notes & IPM Thresholds</h2>
+<h2>Lifestyle Block IPM Thresholds</h2>
+
 <table>
-<tr><th>Area</th><th>Pest</th><th>Action Threshold</th></tr>
-<tr><td>Northland / Auckland</td><td>Caterpillars</td><td>15% leaf damage</td></tr>
-<tr><td>East Coast / Canterbury</td><td>Aphids</td><td>10% infestation</td></tr>
-<tr><td>Central Otago / Otago</td><td>Slugs</td><td>5 per m²</td></tr>
-<tr><td>Southland / Invercargill</td><td>Slugs & Frost</td><td>5 per m² / frost protection advised</td></tr>
-<tr><td>West Coast – North</td><td>Slugs</td><td>5 per m²</td></tr>
-<tr><td>West Coast – South</td><td>Slugs & Wet soils</td><td>5 per m², monitor drainage</td></tr>
+<tr><th>Pest</th><th>Action Threshold</th></tr>
+<tr><td>Aphids</td><td>>10% plants affected</td></tr>
+<tr><td>Caterpillars</td><td>15% leaf loss</td></tr>
+<tr><td>Slugs</td><td>5 per m²</td></tr>
 </table>
-<p>Encourage beneficial insects and tolerate minor damage before chemical use.</p>
+
+<img src="images/slugs.jpg" alt="Slug damage on vegetables" class="pest-img">
+<p class="img-caption">Slugs common in wet soils</p>
 </section>
 
 <footer>
-<p>Sources: Educational guidance only. Last updated 2026.</p>
+<p>Sources: Plant & Food Research NZ, MPI, Regional councils. Educational use only.</p>
 <button onclick="window.print()">Print Page</button>
 </footer>
 
 <script>
-// Show Home, Pests, Lifestyle
-function showSection(id){
-  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-// Show Crop from dropdown
-function showCrop(){
-  const crop = document.getElementById('cropSelect').value;
-  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-  if(crop) document.getElementById(crop).classList.add('active');
+function showCrop() {
+  const c = document.getElementById('cropSelect').value;
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  if (c) document.getElementById(c).classList.add('active');
 }
 
-// Full monthly data for 10 areas (abbreviated here; replace with your full 12-month data)
 const data = {
   "Northland / Auckland": {
-    January:{plant:'Tomatoes, beans, basil',pests:'Aphids, whitefly',disease:'Blight risk'},
-    February:{plant:'Lettuce, silverbeet',pests:'Aphids',disease:'Powdery mildew'},
-    March:{plant:'Brassicas, spinach',pests:'Caterpillars',disease:'Leaf spots'},
-    April:{plant:'Garlic, onions',pests:'Low',disease:'Rust'},
-    May:{plant:'Broad beans, peas',pests:'Low',disease:'Wet soil rot'},
-    June:{plant:'Prep beds only',pests:'Slugs',disease:'Root rot'},
-    July:{plant:'Broad beans, peas',pests:'Slugs',disease:'Cold soils'},
-    August:{plant:'Early potatoes, carrots',pests:'Aphids',disease:'Damping off'},
-    September:{plant:'Carrots, beetroot',pests:'Rust fly',disease:'Seedling loss'},
-    October:{plant:'Tomatoes (frost-free)',pests:'Aphids',disease:'Blight'},
-    November:{plant:'Sweetcorn, beans',pests:'Caterpillars',disease:'Mildew'},
-    December:{plant:'Succession sowing',pests:'Thrips',disease:'Heat stress'}
-  },
-  // Add full remaining 9 areas here with all 12 months
+    January:{plant:"Tomatoes, beans",pests:"Aphids, whitefly",disease:"Blight"},
+    February:{plant:"Lettuce",pests:"Aphids",disease:"Mildew"}
+  }
 };
 
 function updateDashboard(){
-  const area = document.getElementById('area').value;
-  const month = document.getElementById('month').value;
-  let d = data[area][month] || {plant:'N/A',pests:'N/A',disease:'N/A'};
-  document.getElementById('monthly').innerHTML = `
-<tr><td><strong>What to plant</strong></td><td>${d.plant}</td></tr>
-<tr><td><strong>Key pests</strong></td><td>${d.pests}</td></tr>
-<tr><td><strong>Disease risk</strong></td><td>${d.disease}</td></tr>`;
-}
-
-window.onload = updateDashboard;
-</script>
-
-</body>
-</html>
