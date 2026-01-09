@@ -1,128 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>NZ Gardening Companion</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body { font-family: Arial, sans-serif; font-size: 18px; line-height: 1.6; padding: 20px; }
-header { background: #2f6b2f; color: white; padding: 20px; }
-h1, h2 { margin-top: 0; }
-select, button { font-size: 18px; padding: 6px; margin: 10px 0; }
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-td, th { border: 1px solid #ccc; padding: 12px; vertical-align: top; }
-section { margin-top: 30px; display: none; }
-.active { display: block; }
-nav button { margin-right: 5px; }
-.pest-card { border:1px solid #ccc; padding:10px; margin:10px 0; }
-footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color: #555; }
-a { text-decoration: none; color: #2f6b2f; }
-</style>
-</head>
-<body>
-
-<header>
-<h1>NZ Gardening Companion</h1>
-<p>Simple, seasonal gardening advice for New Zealand</p>
-</header>
-
-<nav>
-<button onclick="showSection('home')">Home</button>
-<button onclick="showSection('tomatoes')">Tomatoes</button>
-<button onclick="showSection('brassicas')">Brassicas</button>
-<button onclick="showSection('carrots')">Carrots</button>
-<button onclick="showSection('pests')">Pests & Diseases</button>
-<button onclick="showSection('lifestyle')">Lifestyle Blocks</button>
-</nav>
-
-<section id="home" class="active">
-<h2>Monthly Planting Dashboard</h2>
-<label for="area">Select your area:</label><br>
-<select id="area" onchange="updateDashboard()">
-<option>Northland / Auckland</option>
-<option>Waikato / Bay of Plenty</option>
-<option>Wairarapa / Manawatu</option>
-<option>Wellington / Hawke’s Bay</option>
-<option>Nelson / Marlborough</option>
-<option>East Coast / Canterbury</option>
-<option>Central Otago / Otago</option>
-<option>Southland / Invercargill</option>
-<option>West Coast – North</option>
-<option>West Coast – South</option>
-</select>
-<br><br>
-<label for="month">Month:</label><br>
-<select id="month" onchange="updateDashboard()">
-<option>January</option><option>February</option><option>March</option>
-<option>April</option><option>May</option><option>June</option>
-<option>July</option><option>August</option><option>September</option>
-<option>October</option><option>November</option><option>December</option>
-</select>
-
-<table>
-<tbody id="monthly"></tbody>
-</table>
-</section>
-
-<section id="tomatoes">
-<h2>Tomatoes Guide</h2>
-<table>
-<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
-<tr><td>Northland / Auckland</td><td>Jan - Mar</td><td>Full sun, warm soil</td><td>45cm</td></tr>
-<tr><td>Waikato / Bay of Plenty</td><td>Feb - Apr</td><td>Full sun, warm soil</td><td>45cm</td></tr>
-<tr><td>East Coast / Canterbury</td><td>Mar - May</td><td>Protected sites, frost-free</td><td>45cm</td></tr>
-<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Greenhouse or sheltered sites</td><td>45cm</td></tr>
-</table>
-<h3>Pests & Diseases</h3>
-<table>
-<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
-<tr><td>Aphids</td><td>Clusters on new growth</td><td>>10% leaves</td></tr>
-<tr><td>Whitefly</td><td>Small white insects under leaves</td><td>Sticky traps if heavy</td></tr>
-<tr><td>Blight</td><td>Dark lesions on leaves/stems</td><td>Remove affected parts</td></tr>
-<tr><td>Mildew</td><td>White powdery coating</td><td>Only if widespread</td></tr>
-</table>
-<p>Soil: Well-drained, fertile pH 6.0-6.8<br>Light: Full sun<br>Water: Regular, avoid wetting leaves</p>
-<button onclick="window.print()">Print this page</button>
-</section>
-
-<section id="brassicas">
-<h2>Brassicas Guide</h2>
-<table>
-<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
-<tr><td>Northland / Auckland</td><td>Feb - May</td><td>Full sun, fertile soil</td><td>30-50cm</td></tr>
-<tr><td>East Coast / Canterbury</td><td>Mar - Jun</td><td>Protected sites, fertile soil</td><td>30-50cm</td></tr>
-<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Sheltered sites, short season</td><td>30-50cm</td></tr>
-</table>
-<h3>Pests & Diseases</h3>
-<table>
-<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
-<tr><td>White butterfly caterpillars</td><td>Leaf holes</td><td>>10% leaf damage</td></tr>
-<tr><td>Aphids</td><td>Clusters on leaves</td><td>>10% leaves</td></tr>
-<tr><td>Clubroot</td><td>Swollen roots, stunted growth</td><td>Remove affected plants</td></tr>
-<tr><td>Leaf spots</td><td>Dark spots on leaves</td><td>Only if severe</td></tr>
-</table>
-<p>Soil: Well-drained, fertile pH 6.0-7.0<br>Light: Full sun<br>Water: Keep soil moist</p>
-<button onclick="window.print()">Print this page</button>
-</section>
-
-<section id="carrots">
-<h2>Carrots Guide</h2>
-<table>
-<tr><th>Area</th><th>Planting Window</th><th>Planting Time</th><th>Spacing</th></tr>
-<tr><td>Northland / Auckland</td><td>Mar - Aug</td><td>Sow 1-2cm deep</td><td>5-10cm</td></tr>
-<tr><td>East Coast / Canterbury</td><td>Mar - Aug</td><td>Raised beds / protected rows</td><td>5-10cm</td></tr>
-<tr><td>Central Otago / Otago</td><td>Oct - Dec</td><td>Sow in protected or raised beds</td><td>5-10cm</td></tr>
-</table>
-<h3>Pests & Diseases</h3>
-<table>
-<tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
-<tr><td>Carrot rust fly</td><td>Holes in roots</td><td>Row covers if >5%</td></tr>
-<tr><td>Aphids</td><td>Clusters on leaves</td><td>>10% leaves</td></tr>
-<tr><td>Damping off</td><td>Seedlings collapse</td><td>Ensure good drainage</td></tr>
 </table>
 <p>Soil: Loose, deep, free of stones<br>Light: Full sun<br>Water: Evenly moist</p>
 <button onclick="window.print()">Print this page</button>
 </section>
+
 
 <section id="pests">
 <h2>Pest & Disease ID Cards</h2>
@@ -130,6 +11,7 @@ a { text-decoration: none; color: #2f6b2f; }
 <div class="pest-card"><h3>Whitefly</h3><p>Small white insects, under leaves. Action: Use yellow sticky traps if heavy</p></div>
 <div class="pest-card"><h3>Caterpillars</h3><p>Chew leaves rapidly. Action: Remove by hand if few, otherwise safe insecticide</p></div>
 </section>
+
 
 <section id="lifestyle">
 <h2>Lifestyle Block Notes & IPM Thresholds</h2>
@@ -142,10 +24,12 @@ a { text-decoration: none; color: #2f6b2f; }
 <p>Encourage beneficial insects and tolerate minor damage before chemical use.</p>
 </section>
 
+
 <footer>
 <p>Sources: NZ Plant & Food Research, MPI, Regional Councils. Educational guidance only. Last updated 2026.</p>
 <button onclick="window.print()">Print Page</button>
 </footer>
+
 
 <script>
 const data = {
@@ -161,23 +45,27 @@ const data = {
 "West Coast – South": {January:{plant:'Leafy greens',pests:'Slugs',disease:'Wet soil rot'}}
 };
 
+
 function updateDashboard(){
-  const area = document.getElementById('area').value;
-  const month = document.getElementById('month').value;
-  let d = data[area][month] || {plant:'N/A',pests:'N/A',disease:'N/A'};
-  document.getElementById('monthly').innerHTML = `
+const area = document.getElementById('area').value;
+const month = document.getElementById('month').value;
+let d = data[area][month] || {plant:'N/A',pests:'N/A',disease:'N/A'};
+document.getElementById('monthly').innerHTML = `
 <tr><td><strong>What to plant</strong></td><td>${d.plant}</td></tr>
 <tr><td><strong>Key pests</strong></td><td>${d.pests}</td></tr>
 <tr><td><strong>Disease risk</strong></td><td>${d.disease}</td></tr>`;
 }
 
+
 function showSection(id){
-  document.querySelectorAll('section').forEach(sec=>sec.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+document.querySelectorAll('section').forEach(sec=>sec.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
+
 
 window.onload = updateDashboard;
 </script>
+
 
 </body>
 </html>
