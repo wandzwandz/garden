@@ -17,6 +17,20 @@ nav select, nav button { margin-right: 5px; }
 .pest-card { border:1px solid #ccc; padding:10px; margin:10px 0; }
 footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color: #555; }
 a { text-decoration: none; color: #2f6b2f; }
+  .pest-img, .disease-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+.img-caption {
+  font-size: 15px;
+  color: #555;
+}
+
 </style>
 </head>
 <body>
@@ -83,7 +97,9 @@ a { text-decoration: none; color: #2f6b2f; }
 <table>
 <tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
 <tr><td>Aphids</td><td>Clusters on new growth</td><td>>10% leaves</td></tr>
-<tr><td>Whitefly</td><td>Small white insects under leaves</td><td>Sticky traps if heavy</td></tr>
+<tr><td>Whitefly</td><td>Small white insects under leaves</td><td>Sticky traps if heavy</td></tr> <img src="images/whitefly.jpg"
+     alt="Whitefly under tomato leaves"
+     class="pest-img">
 <tr><td>Blight</td><td>Dark lesions on leaves/stems</td><td>Remove affected parts</td></tr>
 <tr><td>Mildew</td><td>White powdery coating</td><td>Only if widespread</td></tr>
 </table>
