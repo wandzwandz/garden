@@ -18,13 +18,11 @@ nav select, nav button { margin-right: 5px; }
 footer { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px; color: #555; }
 a { text-decoration: none; color: #2f6b2f; }
   /* Pest & disease images inside tables */
-.pest-img,
-.disease-img {
   .pest-img,
 .disease-img {
- width: 120px !important;
+ width: 110px !important;
   height: auto !important;   
-  max-width: 100%;
+  display: block;
   border-radius: 6px;
   margin-top: 6px;
 }
@@ -96,12 +94,10 @@ a { text-decoration: none; color: #2f6b2f; }
 <table>
 <tr><th>Pest / Disease</th><th>Signs</th><th>IPM Threshold</th></tr>
 <tr><td>Aphids</strong><br>
-  <div class="img-thumb">
     <img src="images/aphids.jpg"
          alt="Aphids on leaf"
          class="pest-img"><t/d>
-            </div>
-  <td>Clusters on new growth</td><td>>10% leaves</td></tr>
+     <td>Clusters on new growth</td><td>>10% leaves</td></tr>
 <tr><td>Whitefly</td><td>Small white insects under leaves</td><td>Sticky traps if heavy</td></tr>
 <tr><td>Blight</td><td>Dark lesions on leaves/stems</td><td>Remove affected parts</td></tr>
 <tr><td>Mildew</td><td>White powdery coating</td><td>Only if widespread</td></tr>
